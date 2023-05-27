@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rice Counter App</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+<style>
+label {
+    display: block;
+    font: 1rem 'Fira Sans', 'sans-serif';
+}
+
+input,
+label {
+    margin: 0.4rem 0;
+}
+
+</style>
+</head>
+<body>
+<div class="container mt-20">
+	<h3 class="d-flex fw-bold text-danger justify-content-center text-center"
+    style="margin-top:50px;margin-bottom:50px;">Rice Counter App</h3>
+    <div class="container ms-2 mt-10 justify-content-center">
+    	<h5 class="text-bold fw-bold">Image File Upload Section: </h5>
+    	<form class="container" method="post" action="{{ url_for('home') }}"
+              enctype="multipart/form-data"
+        >
+          <div>
+            <label for="files">Choose file to upload</label>
+<!--            <input class="text-primary"type="file" id="files" name="files" autocomplete="off"  accept="image/png, image/jpg, image/jpeg" multiple required/>-->
+              <input class="text-primary"type="file" id="files" name="files" autocomplete="off"  accept="image/png, image/jpg, image/jpeg" required/>
+
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-block">Get Prediction</button>
+          </div>
+        </form>
+    </div>
+    <div class="container ms-2 mt-5">
+    	<h5 class="text-bold fw-bold">Result: </h5>
+        <br>
+        {% if output %}
+            <div>
+                <ul>
+                    <li>
+                        Black Rice: {{output.black_rice}}
+                    </li>
+                    <li>
+                         Rice: {{output.rice}}
+                    </li>
+                    <li>
+                        image path: {{output.path}}
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"/></script>
+</body>
+</html>
