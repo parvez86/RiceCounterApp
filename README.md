@@ -1,2 +1,2 @@
 # RiceCounterApp
- A fFask rice counter applicatinn that counts rice and black rice from image using Opencv
+A Flask rice counter application that counts white and black rice from image using image processing.
